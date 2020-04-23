@@ -7,14 +7,30 @@
 //
 
 import UIKit
+protocol updateModelProtocol {
+    func updateUserList(str: String)
+}
 
 class ViewController: UIViewController {
 
+    
+    var selectionDelegate: updateModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+    
+    
     }
 
 
+    @IBAction func onClickBtn(_ sender: Any) {
+        selectionDelegate.updateUserList(str: "helal")
+    }
+    
+   
+    
 }
 
