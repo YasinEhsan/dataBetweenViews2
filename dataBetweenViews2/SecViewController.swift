@@ -15,8 +15,14 @@ class SecViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bossVc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController
-        bossVc?.selectionDelegate = self
+        NotificationCenter.default.addObserver(forName: .vcOneAction, object: nil, queue: nil) { (notification) in
+            
+            let bossVC = notification.object as! ViewController
+            self.label2.text = bossVC.passThisVeryImpotent
+        }
+//
+//        let bossVc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+//        bossVc?.selectionDelegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -34,10 +40,10 @@ class SecViewController: UIViewController {
 
 }
 
-extension SecViewController: updateModelProtocol {
-    func updateUserList(str: String) {
-        print(str)
-    }
-    
-    
-}
+//extension SecViewController: updateModelProtocol {
+//    func updateUserList(str: String) {
+//        label2.text = str
+//    }
+//
+//
+//}

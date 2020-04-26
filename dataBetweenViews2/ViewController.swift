@@ -7,14 +7,15 @@
 //
 
 import UIKit
-protocol updateModelProtocol {
-    func updateUserList(str: String)
-}
+//protocol updateModelProtocol {
+//    func updateUserList(str: String)
+//}
 
 class ViewController: UIViewController {
 
     
-    var selectionDelegate: updateModelProtocol!
+//    var selectionDelegate: updateModelProtocol!
+    var passThisVeryImpotent: String = "haha"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,18 @@ class ViewController: UIViewController {
 
 
     @IBAction func onClickBtn(_ sender: Any) {
-        selectionDelegate.updateUserList(str: "helal")
+//        selectionDelegate.updateUserList(str: "helal")
+//          let internVc = storyboard?.instantiateViewController(withIdentifier: "SecViewController") as? SecViewController
+//        internVc?.label2.text = "randy"
+        
+        NotificationCenter.default.post(name: .vcOneAction, object: self)
     }
     
    
     
+}
+
+extension Notification.Name {
+    static let vcOneAction = Notification.Name(rawValue: "vcOneAction")
 }
 
